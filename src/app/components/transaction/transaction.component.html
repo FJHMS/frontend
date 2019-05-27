@@ -1,0 +1,17 @@
+<div>
+    <input [(ngModel)]="senderId" type="number"  placeholder="sender account id">
+    <input [(ngModel)]="receiverId" type="number"  placeholder="receiver account id">
+    <input [(ngModel)]="amount" type="number"  placeholder="amount">
+    <button (click)="makeTransaction()">Make Transaction</button>
+  </div>
+  <div *ngIf = transaction>Transaction successfull</div>
+
+  <button (click)="getTransactions()">View Past Transactions</button>
+  <ul>
+  <li *ngFor = "let item of transactions">
+  transaction Id: {{item.id}}
+  receiver Id: {{item.receiverId}}
+  sender Id: {{item.senderId}}
+  amount: {{item.amount}}
+  </li>
+</ul>

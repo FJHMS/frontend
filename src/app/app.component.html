@@ -1,6 +1,18 @@
+<div *ngIf =!isAuthenticated>
+  <div routerLink="login"></div>
+</div>
 
+
+<div *ngIf = isAuthenticated>
+  <button routerLink="home">Home</button>
   <button routerLink="users">View Users</button>
   <button routerLink="users/post">Create User</button>
-  
-  <router-outlet></router-outlet>
+  <button routerLink="accounts">View Accounts</button>
+  <button routerLink="accounts/post">Create Account</button>
+  <button routerLink="transactions">Transactions</button>
+  <button (click)="isAuthenticated = false">LogOut</button>
+</div>
 
+<router-outlet></router-outlet>
+
+<app-log-in (authEventemitter) = "login($event)" > </app-log-in>

@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'banking-frontend';
+
+  isAuthenticated: boolean = false;
+
+  login(isAuthenticated: boolean){
+    this.isAuthenticated = isAuthenticated;
+  }
 }

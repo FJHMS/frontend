@@ -1,0 +1,8 @@
+<div>
+  <!-- <input #balance placeholder="balance..."> -->
+  <input [(ngModel)]="balance" type="number"  placeholder="balance...">
+  <input #id placeholder="User ID...">
+  <button (click)="getUser(id.value)">CREATE ACCOUNT</button>
+  <!-- <button (click)="balance.value=''">CLEAR</button> -->
+</div>
+<div *ngIf = account>Account with ID {{account.id}} successfully created</div>

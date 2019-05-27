@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,6 +10,12 @@ import { ViewUserComponent } from './components/view-user/view-user.component';
 import { ViewUsersComponent } from './components/view-users/view-users.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DeleteUserComponent } from './components/delete-user/delete-user.component';
+import { CreateAccountComponent } from './components/create-account/create-account.component';
+import { ViewAccountsComponent } from './components/view-accounts/view-accounts.component';
+import { ViewAccountComponent } from './components/view-account/view-account.component';
+import { HomeComponent } from './components/home/home.component';
+import { TransactionComponent } from './components/transaction/transaction.component';
+import { LogInComponent } from './components/log-in/log-in.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +23,20 @@ import { DeleteUserComponent } from './components/delete-user/delete-user.compon
     CreateUserComponent,
     ViewUserComponent,
     ViewUsersComponent,
-    DeleteUserComponent    
+    DeleteUserComponent,
+    CreateAccountComponent,
+    ViewAccountsComponent,
+    ViewAccountComponent,
+    HomeComponent,
+    TransactionComponent,
+    LogInComponent    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
