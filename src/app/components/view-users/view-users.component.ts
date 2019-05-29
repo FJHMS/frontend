@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { RestService } from 'src/app/services/rest.service';
 import { User } from 'src/app/contracts/user';
 
@@ -16,6 +16,6 @@ export class ViewUsersComponent implements OnInit {
   ngOnInit() {
     this.rest.getUsers().subscribe(
       response => this.users = response)
-  }
+  }  
 
 }

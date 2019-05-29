@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { User } from './contracts/user';
 
 @Component({
   selector: 'app-root',
@@ -13,4 +14,6 @@ export class AppComponent {
   login(isAuthenticated: boolean){
     this.isAuthenticated = isAuthenticated;
   }
+  
+
 }

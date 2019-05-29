@@ -17,7 +17,7 @@ export class CreateUserComponent implements OnInit {
       firstname: ['', {
         validators: [
           Validators.required,
-          Validators.minLength(3)
+          Validators.minLength(3),
         ],
       }],
       lastname: ['', {

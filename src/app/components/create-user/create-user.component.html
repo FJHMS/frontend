@@ -1,19 +1,19 @@
 <form [formGroup]="userForm">
   <input formControlName="firstname" type="text"
   placeholder="firstname" [ngClass]="{'invalid': f.firstname.touched && f.firstname.errors}">
-  <span *ngIf="f.firstname.errors && f.firstname.touched">There is an error</span>
+  <span *ngIf="f.firstname.errors && f.firstname.touched">Please enter at least three characters</span>
 
   <input formControlName="lastname" type="text"
   placeholder="lastname" [ngClass]="{'invalid': f.lastname.touched && f.lastname.errors}">
-  <span *ngIf="f.lastname.errors && f.lastname.touched">There is an error</span>
+  <span *ngIf="f.lastname.errors && f.lastname.touched">Please enter at least three characters</span>
 
   <input formControlName="username" type="text"
   placeholder="username" [ngClass]="{'invalid': f.username.touched && f.username.errors}">
-  <span *ngIf="f.username.errors && f.username.touched">There is an error</span>
+  <span *ngIf="f.username.errors && f.username.touched">Please enter at least three characters</span>
 
   <input formControlName="password" type="text"
   placeholder="password" [ngClass]="{'invalid': f.password.touched && f.password.errors}">
-  <span *ngIf="f.password.errors && f.password.touched">There is an error</span>
+  <span *ngIf="f.password.errors && f.password.touched">Please enter at least three characters</span>
 
   <button (click)="postFormUser()">CREATE USER</button>
   <!-- <button (click)="firstname.value=''; lastname.value=''; username.value=''; password.value=''">CLEAR</button> -->

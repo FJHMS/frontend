@@ -19,11 +19,8 @@ export class DeleteUserComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.rest.deleteUserById(this.id).then(() => this.goBack());
+    this.rest.deleteUserById(this.id).subscribe(response => {
+      response = response;
+      console.log(response)});
       }
-     
-      goBack(): void {
-        this.location.back();
-      }
-
 }

@@ -1,8 +1,12 @@
-<div>
-  <!-- <input #balance placeholder="balance..."> -->
-  <input [(ngModel)]="balance" type="number"  placeholder="balance...">
-  <input #id placeholder="User ID...">
-  <button (click)="getUser(id.value)">CREATE ACCOUNT</button>
+<form [formGroup]="accountForm" *ngIf="accountForm">
+  <input formControlName="balance" type="number" placeholder="balance..."
+    [ngClass]="{'invalid': f.balance.touched && f.balance.errors}">
+  <span *ngIf="f.balance.errors && f.balance.touched">Please enter positive number</span>
+
+  <input formControlName="userId" type="number" placeholder="User ID..."
+    [ngClass]="{'invalid': f.userId.touched && f.userId.errors}">
+  <span *ngIf="f.userId.errors && f.userId.touched">There is no user with this user ID</span>
+  <button (click)="postFormAccount()">CREATE ACCOUNT</button>
   <!-- <button (click)="balance.value=''">CLEAR</button> -->
-</div>
-<div *ngIf = account>Account with ID {{account.id}} successfully created</div>
+</form>
+<div *ngIf=account>Account with ID {{account.id}} for User with ID {{user.id}} successfully created</div>

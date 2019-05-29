@@ -27,8 +27,8 @@ export class RestService {
     return this.http.get<User>(this.URL + 'users/' + id);
   }
 
-  public deleteUserById(id: number){
-    this.http.delete(this.URL + 'users/delete/' + id)
+  public deleteUserById(id: number): Observable<any>{
+   return this.http.delete(this.URL + 'users/delete/' + id);
   }
 
   public postAccount(account: Account): Observable<any> {
