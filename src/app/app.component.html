@@ -7,12 +7,9 @@
   <button routerLink="home">Home</button>
   <button routerLink="users">View Users</button>
   <button routerLink="users/post">Create User</button>
-  <button routerLink="accounts">View Accounts</button>
-  <button routerLink="accounts/post">Create Account</button>
   <button routerLink="transactions">Transactions</button>
-  <button (click)="isAuthenticated = false">LogOut</button>
+  <a href="http://localhost:4200/home"><button>LogOut</button></a>
+  <router-outlet></router-outlet>
 </div>
-
-<router-outlet></router-outlet>
 
 <app-log-in (authEventemitter) = "login($event)" > </app-log-in>

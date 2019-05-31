@@ -17,6 +17,7 @@ export class TransactionComponent implements OnInit {
   amount: number;
   transaction: Transaction;
   transactions: Transaction[];
+  showTransactions: boolean = false;
   
   ngOnInit() {
   }

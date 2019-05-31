@@ -12,6 +12,7 @@ export class ViewUserComponent implements OnInit {
 
   user: User;
   id: number;
+  newAccount: boolean = false;
 
   constructor(private route: ActivatedRoute,private rest: RestService) {
     route.params.subscribe(

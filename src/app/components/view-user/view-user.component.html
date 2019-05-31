@@ -7,3 +7,14 @@
   <a href="users/delete/{{user.id}}"><button>Delete User</button></a>
 </div>
 
+<div>
+<button (click)="newAccount = !newAccount">New Account</button>
+<div *ngIf = newAccount>
+<app-create-account></app-create-account>
+</div></div>
+
+<div>
+<button (click)="viewAccounts = !viewAccounts">View Accounts of this User</button>
+<div *ngIf = viewAccounts>
+<app-view-accounts></app-view-accounts>
+</div></div>

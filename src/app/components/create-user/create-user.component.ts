@@ -50,18 +50,6 @@ export class CreateUserComponent implements OnInit {
   ngOnInit() {
   }
 
-  // addUser(firstname: string, lastname: string, username: string, password:string,
-  //   accounts: Account[]) {
-  //     if (!this.userForm.valid) {
-  //       console.log('invalid!');
-  //       return;
-  //     }
-  //   const user = new User(firstname,lastname,username,password);
-  //   this.rest.postUser(user).subscribe(response => {
-  //     this.user = response;
-  //     console.log('Posted with formGroup!')});
-  // }
-
   postFormUser() {
 
     if (!this.userForm.valid) {
@@ -69,16 +57,16 @@ export class CreateUserComponent implements OnInit {
       return;
     }
 
-    const user = new User(
+    this.user = new User(
       this.userForm.get('firstname').value,
       this.userForm.get('lastname').value,
       this.userForm.get('username').value,
       this.userForm.get('password').value
     );
 
-    console.log(user);
+    console.log(this.user);
 
-    this.rest.postUser(user).subscribe(
+    this.rest.postUser(this.user).subscribe(
       _ => console.log('Posted with formGroup!')
     );
 
