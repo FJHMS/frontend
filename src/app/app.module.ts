@@ -15,6 +15,11 @@ import { ViewAccountsComponent } from './components/view-accounts/view-accounts.
 import { HomeComponent } from './components/home/home.component';
 import { TransactionComponent } from './components/transaction/transaction.component';
 import { LogInComponent } from './components/log-in/log-in.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -34,7 +39,9 @@ import { LogInComponent } from './components/log-in/log-in.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
