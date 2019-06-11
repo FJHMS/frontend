@@ -16,12 +16,12 @@ import { HomeComponent } from './components/home/home.component';
 import { TransactionComponent } from './components/transaction/transaction.component';
 import { LogInComponent } from './components/log-in/log-in.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
-
+import { NavigationComponent } from './navigation/navigation.component';
+import { MatTableModule } from '@angular/material';
 
 
 @NgModule({
+
   declarations: [
     AppComponent,
     CreateUserComponent,
@@ -32,7 +32,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ViewAccountsComponent,
     HomeComponent,
     TransactionComponent,
-    LogInComponent    
+    LogInComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
@@ -40,8 +41,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
-
+    BrowserAnimationsModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
