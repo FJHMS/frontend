@@ -1,21 +1,56 @@
-<div>
-  <input [(ngModel)]="senderId" type="number" placeholder="sender account id">
-  <input [(ngModel)]="receiverId" type="number" placeholder="receiver account id">
-  <input [(ngModel)]="amount" type="number" placeholder="amount">
-  <button (click)="makeTransaction()">Make Transaction</button>
-</div>
+<form [formGroup]="transactionForm" *ngIf="transactionForm">
+
+    <input formControlName="senderId" type="number" placeholder="sender account id"
+    [ngClass]="{'invalid': f.senderId.touched && f.senderId.errors}">
+ 
+  <span *ngIf="f.senderId.errors && f.senderId.touched">There is no account with this id</span>
+
+  <input formControlName="receiverId" type="number" placeholder="receiver account id"
+    [ngClass]="{'invalid': f.receiverId.touched && f.receiverId.errors}">
+ 
+  <span *ngIf="f.receiverId.errors && f.receiverId.touched">There is no account with this id</span>
+
+  <input formControlName="amount" type="number" placeholder="amount"
+    [ngClass]="{'invalid': f.amount.touched && f.amount.errors}">
+
+  <span *ngIf="f.amount.errors && f.amount.touched">Please enter a positive number</span>
+  
+
+  <button (click)="postFormTransaction()">Make Transaction</button>
+</form>
+
 <div *ngIf=transaction>Transaction successfull</div>
 
 <div>
-  <button (click)="showTransactions = !showTransactions">Past Transactions</button>
+  <button (click)="showTransactions = !showTransactions; getTransactions()">Past Transactions</button>
 </div>
-<div *ngIf=showTransactions>
-  <ul>
+<!-- <div *ngIf=showTransactions> -->
+
+  <!-- <ul>
     <li *ngFor="let item of transactions">
       transaction Id: {{item.id}}
       receiver Id: {{item.receiverId}}
       sender Id: {{item.senderId}}
       amount: {{item.amount}}
     </li>
-  </ul>
-</div>
+  </ul> -->
+
+<!-- <table mat-table *ngFor="let item of transactions">
+
+    <ng-container matColumnDef="transactionId">
+        <th mat-header-cell *matHeaderCellDef> transaction id </th>
+        <td mat-cell *matCellDef> {{item.id}} </td>
+    </ng-container>
+    transaction Id: {{item.id}}
+    receiver Id: {{item.receiverId}}
+    sender Id: {{item.senderId}}
+    amount: {{item.amount}}
+</table> -->
+
+<!-- </div> -->
+
+<app-table></app-table>
+
+<!-- <div>
+    <button (click)="testTransaction()">Test Transactions</button>
+  </div> -->

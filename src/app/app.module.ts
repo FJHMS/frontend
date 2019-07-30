@@ -17,7 +17,13 @@ import { TransactionComponent } from './components/transaction/transaction.compo
 import { LogInComponent } from './components/log-in/log-in.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavigationComponent } from './navigation/navigation.component';
-import { MatTableModule } from '@angular/material';
+import { HeaderComponent } from './components/header/header.component';
+import {MatButtonModule} from '@angular/material';
+import {MatTableModule} from '@angular/material';
+import { TableComponent } from './components/table/table.component';
+import { MatSidenavModule } from '@angular/material';
+import { SidenavComponent } from './sidenav/sidenav.component'
+
 
 
 @NgModule({
@@ -33,7 +39,10 @@ import { MatTableModule } from '@angular/material';
     HomeComponent,
     TransactionComponent,
     LogInComponent,
-    NavigationComponent
+    NavigationComponent,
+    HeaderComponent,
+    TableComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +51,9 @@ import { MatTableModule } from '@angular/material';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatTableModule
+    MatButtonModule,
+    MatTableModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

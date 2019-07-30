@@ -1,17 +1,17 @@
 <div>
   id: {{user.id}}
-  username: {{user.username}}
-  firstname: {{user.firstname}}
+  username: {{user.username}} 
+  firstname: {{user.firstname}} 
   lastname: {{user.lastname}}
   password: {{user.password}}
   <a href="users/delete/{{user.id}}"><button>Delete User</button></a>
 </div>
 
-<div>
+<!-- <div>
 <button (click)="newAccount = !newAccount">New Account</button>
 <div *ngIf = newAccount>
 <app-create-account></app-create-account>
-</div></div>
+</div></div> -->
 
 <div>
 <button (click)="viewAccounts = !viewAccounts">View Accounts of this User</button>

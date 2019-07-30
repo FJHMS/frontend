@@ -1,4 +1,23 @@
-.button-styled {
+mat-sidenav-container {
+  height: 100%;
+}
+
+mat-sidenav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 230px;
+    height: 12000px;
+    background:rgb(168, 167, 167);
+  }
+
+  .menu-button {
+    position: absolute;
+    left: 0;
+
+  }
+
+  .button-styled {
     color: white; 
     font-size: 20px;
      padding: 10px;

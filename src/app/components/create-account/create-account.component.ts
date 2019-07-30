@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RestService } from 'src/app/services/rest.service';
 import { Account } from 'src/app/contracts/account';
 import { User } from 'src/app/contracts/user';
+import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 
 @Component({
@@ -18,6 +19,7 @@ export class CreateAccountComponent implements OnInit {
   users: User[];
   notPresent: boolean;
   
+  
   constructor(private rest: RestService, private formBuilder: FormBuilder) {
     rest.getUsers().subscribe(res => {
       this.users = res;
@@ -33,16 +35,17 @@ export class CreateAccountComponent implements OnInit {
             Validators.required,
             this.ValidateUser.bind(this)
           ],
-        }],
+        }],        
       });
     });
   }
 
-  ngOnInit() { }
+  ngOnInit() { 
+  }
 
   ValidateUser(control: AbstractControl) {
-    console.log("control value:" + control.value);
-    console.log("user:" + this.users);
+    // console.log("control value:" + control.value);
+    // console.log("user:" + this.users);
     this.notPresent = true;
     for (let user of this.users) {
       if (user.id == control.value) {

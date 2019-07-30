@@ -43,7 +43,7 @@ export class RestService {
     return this.http.get<Account>(this.URL + 'accounts/' + id);
   }
 
-  public makeTransaction(transaction: Transaction): Observable<any> {
+  public postTransaction(transaction: Transaction): Observable<any> {
     return this.http.post(this.URL + 'transactions', transaction);
   }
 

@@ -1,14 +1,17 @@
 <form [formGroup]="accountForm" *ngIf="accountForm">
-<!-- <mat-form-field> -->
+
   <input formControlName="balance" type="number" placeholder="balance..."
     [ngClass]="{'invalid': f.balance.touched && f.balance.errors}">
-  <!-- </mat-form-field> -->
+ 
   <span *ngIf="f.balance.errors && f.balance.touched">Please enter positive number</span>
 
   <input formControlName="userId" type="number" placeholder="User ID..."
     [ngClass]="{'invalid': f.userId.touched && f.userId.errors}">
+
   <span *ngIf="f.userId.errors && f.userId.touched">There is no user with this user ID</span>
+  
   <button (click)="postFormAccount()">CREATE ACCOUNT</button>
   <!-- <button (click)="balance.value=''">CLEAR</button> -->
 </form>
+
 <div *ngIf=account>Account with ID {{account.id}} for User with ID {{user.id}} successfully created</div>

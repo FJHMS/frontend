@@ -37,6 +37,10 @@ const routes: Routes = [
     component: DeleteUserComponent
   },
   {
+    path: 'accounts/post',
+    component: CreateAccountComponent
+  },
+  {
     path: 'transactions',
     component: TransactionComponent
   }
