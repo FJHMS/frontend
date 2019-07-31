@@ -5,10 +5,8 @@ import { ViewUserComponent } from './components/view-user/view-user.component';
 import { ViewUsersComponent } from './components/view-users/view-users.component';
 import { DeleteUserComponent } from './components/delete-user/delete-user.component';
 import { CreateAccountComponent } from './components/create-account/create-account.component';
-import { ViewAccountsComponent } from './components/view-accounts/view-accounts.component';
 import { HomeComponent } from './components/home/home.component';
 import { TransactionComponent } from './components/transaction/transaction.component';
-import { LogInComponent } from './components/log-in/log-in.component';
 
 const routes: Routes = [
   {

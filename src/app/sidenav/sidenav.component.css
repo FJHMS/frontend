@@ -34,3 +34,10 @@ mat-sidenav {
      cursor: pointer;
      border-right: 3px solid white
 }
+
+.menu {
+  width: 30px;
+  height: 4px;
+  background-color: rgb(97, 97, 97);
+  margin: 5px 0;
+}

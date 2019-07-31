@@ -9,7 +9,7 @@ import { User } from './contracts/user';
 export class AppComponent {
   title = 'banking-frontend';
 
-  isAuthenticated: boolean = false;
+  isAuthenticated: boolean = true;
 
   login(isAuthenticated: boolean){
     this.isAuthenticated = isAuthenticated;

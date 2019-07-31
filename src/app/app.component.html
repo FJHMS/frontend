@@ -1,34 +1,21 @@
-<!-- <div style="padding: 15px; text-align: center; background: #1abc9c; color: white; font-size: 30px">
+<div style="padding: 10px; text-align: center; background: #1abc9c; color: white; font-size: 30px">
   <app-header></app-header>
 </div>
 
-<br>
-<br>
 
-<div *ngIf =!isAuthenticated >
+<!-- <div *ngIf = !isAuthenticated >
   <div routerLink="login"></div>
 </div>
 
-<div *ngIf = isAuthenticated>
+<div *ngIf = isAuthenticated> -->
 
-  <div style="position: absolute; top: 0px; left: 0px; width: 230px; background-color: rgb(41, 41, 41); height: 12000px">
-  <app-navigation></app-navigation>
-  </div>
+    <app-sidenav></app-sidenav>
     
-  <div style="position: center">
-    <router-outlet></router-outlet>
-  </div>
-
-  <mat-sidenav-container class="example-container" *ngIf="shouldRun">
-      <mat-sidenav mode="side" opened>Sidenav content</mat-sidenav>
-      <mat-sidenav-content>Main content</mat-sidenav-content>
-    </mat-sidenav-container>
-    
-
-</div>
+<!-- </div>
 
 <app-log-in (authEventemitter) = "login($event)" > </app-log-in> -->
 
-<app-sidenav></app-sidenav>
+
+
 
 

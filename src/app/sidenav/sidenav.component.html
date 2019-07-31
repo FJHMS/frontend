@@ -8,7 +8,14 @@
                         <a href="http://localhost:4200/home"><button class="button-styled">LogOut</button></a>
         </mat-sidenav>
         <mat-sidenav-content>
-                        <button mat-button class="menu-button" (click)="opened=!opened">Menu</button>
+                        <button mat-button class="menu-button" (click)="opened=!opened">
+                                <div class="menu"></div>
+                                <div class="menu"></div>
+                                <div class="menu"></div>
+                        </button>
+
+                        <router-outlet></router-outlet>
+                        
         </mat-sidenav-content>
 </mat-sidenav-container>
 

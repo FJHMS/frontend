@@ -16,7 +16,6 @@ import { HomeComponent } from './components/home/home.component';
 import { TransactionComponent } from './components/transaction/transaction.component';
 import { LogInComponent } from './components/log-in/log-in.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavigationComponent } from './navigation/navigation.component';
 import { HeaderComponent } from './components/header/header.component';
 import {MatButtonModule} from '@angular/material';
 import {MatTableModule} from '@angular/material';
@@ -39,7 +38,6 @@ import { SidenavComponent } from './sidenav/sidenav.component'
     HomeComponent,
     TransactionComponent,
     LogInComponent,
-    NavigationComponent,
     HeaderComponent,
     TableComponent,
     SidenavComponent

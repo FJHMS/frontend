@@ -11,6 +11,9 @@ import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/fo
 })
 export class TransactionComponent implements OnInit {
 
+  displayedColumns: string[] = ['id', 'amount', 'receiver_id', 'sender_id'];
+  dataSource: Transaction[];
+
   transactionForm: FormGroup;
   receiverId: number;
   senderId: number;
@@ -86,11 +89,6 @@ export class TransactionComponent implements OnInit {
     this.rest.getTransactions().subscribe(response => this.transactions = response)
   }
 
-  // testTransaction(){
-  //   const transaction = new Transaction(2,3,4);
-  //   console.log(transaction);
-  //   this.rest.postTransaction(transaction).subscribe(response => this.transaction = response);
-  // }
 }
 
 
