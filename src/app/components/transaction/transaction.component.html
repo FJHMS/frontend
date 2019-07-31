@@ -1,4 +1,22 @@
-<form [formGroup]="transactionForm" *ngIf="transactionForm">
+
+<form [formGroup]="transactionForm">
+    <mat-form-field>
+      <input matInput placeholder="sender account id" [formControl]="senderId">
+      <mat-error *ngIf="senderId.hasError('senderId') && !senderId.hasError('required')">
+        Please enter a valid id
+      </mat-error>
+      <mat-error *ngIf="transactionForm.hasError('required')">
+        sender account id is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </form>
+  
+
+
+
+
+
+<!-- <form [formGroup]="transactionForm" *ngIf="transactionForm">
 
     <input formControlName="senderId" type="number" placeholder="sender account id"
     [ngClass]="{'invalid': f.senderId.touched && f.senderId.errors}">
@@ -15,9 +33,9 @@
 
   <span *ngIf="f.amount.errors && f.amount.touched">Please enter a positive number</span>
   
+</form> -->
 
-  <button (click)="postFormTransaction()">Make Transaction</button>
-</form>
+<button (click)="postFormTransaction()">Make Transaction</button>
 
 <div *ngIf=transaction>Transaction successfull</div>
 

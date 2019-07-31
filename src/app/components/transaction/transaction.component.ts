@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RestService } from 'src/app/services/rest.service';
 import { Transaction } from 'src/app/contracts/transaction';
 import { Account } from 'src/app/contracts/account';
-import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-transaction',
@@ -24,28 +24,28 @@ export class TransactionComponent implements OnInit {
   transactions: Transaction[];
   showTransactions: boolean = false;
 
-  constructor(private rest: RestService, private formBuilder: FormBuilder) {
+  constructor(private rest: RestService) {
     rest.getAccounts().subscribe(res => {
       this.accounts = res;
-      this.transactionForm = formBuilder.group({
-        senderId: ['', {
+      this.transactionForm = new FormGroup({
+        senderId: new FormControl('', {
           validators: [
             Validators.required,
             this.ValidateAccount.bind(this)
           ],
-        }],
-        receiverId: ['', {
+        }),
+        receiverId: new FormControl('', {
           validators: [
             Validators.required,
             this.ValidateAccount.bind(this)
           ],
-        }],
-        amount: ['', {
+        }),
+        amount: new FormControl ('', {
           validators: [
             Validators.required,
             Validators.min(0)
           ]
-        }]
+        })
 
       });
     })

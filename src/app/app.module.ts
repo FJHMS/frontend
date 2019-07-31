@@ -21,7 +21,8 @@ import {MatButtonModule} from '@angular/material';
 import {MatTableModule} from '@angular/material';
 import { TableComponent } from './components/table/table.component';
 import { MatSidenavModule } from '@angular/material';
-import { SidenavComponent } from './sidenav/sidenav.component'
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { MatInputModule } from '@angular/material';
 
 
 
@@ -51,7 +52,8 @@ import { SidenavComponent } from './sidenav/sidenav.component'
     BrowserAnimationsModule,
     MatButtonModule,
     MatTableModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
