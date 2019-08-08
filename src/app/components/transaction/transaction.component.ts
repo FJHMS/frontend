@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RestService } from 'src/app/services/rest.service';
 import { Transaction } from 'src/app/contracts/transaction';
 import { Account } from 'src/app/contracts/account';
-import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, AbstractControl, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-transaction',
@@ -11,10 +11,13 @@ import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/fo
 })
 export class TransactionComponent implements OnInit {
 
+  senderIdForm = new FormControl()
+  receiverIdForm = new FormControl()
+  amountForm = new FormControl()
+
   displayedColumns: string[] = ['id', 'amount', 'receiver_id', 'sender_id'];
   dataSource: Transaction[];
 
-  transactionForm: FormGroup;
   receiverId: number;
   senderId: number;
   amount: number;
@@ -27,34 +30,28 @@ export class TransactionComponent implements OnInit {
   constructor(private rest: RestService, private formBuilder: FormBuilder) {
     rest.getAccounts().subscribe(res => {
       this.accounts = res;
-      this.transactionForm = formBuilder.group({
-        senderId: ['', {
-          validators: [
-            Validators.required,
-            this.ValidateAccount.bind(this)
-          ],
-        }],
-        receiverId: ['', {
-          validators: [
-            Validators.required,
-            this.ValidateAccount.bind(this)
-          ],
-        }],
-        amount: ['', {
-          validators: [
-            Validators.required,
-            Validators.min(0)
-          ]
-        }]
 
-      });
+      this.senderIdForm = new FormControl('', [
+        Validators.required,
+        this.validateAccount.bind(this)
+      ])
+
+      this.receiverIdForm = new FormControl('', [
+        Validators.required,
+        this.validateAccount.bind(this)
+      ])
+
+      this.amountForm = new FormControl('', [
+        Validators.required,
+        Validators.min(0)
+      ])
     })
   }
 
   ngOnInit() {
   }
 
-  ValidateAccount(control: AbstractControl) {
+  validateAccount(control: AbstractControl) {
     // console.log("control value:" + control.value);
     // console.log("user:" + this.users);
     this.notPresent = true;
@@ -67,21 +64,14 @@ export class TransactionComponent implements OnInit {
     return this.notPresent ? { 'accountId': true } : null;
   }
 
-  get f() {
-    return this.transactionForm.controls;
-  }
 
   postFormTransaction() {
 
-    if (!this.transactionForm.valid) {
-      console.log('invalid!');
-      return;
-    }
-    this.addTransaction(this.transactionForm.get('senderId').value, this.transactionForm.get('receiverId').value, this.transactionForm.get('amount').value);
+    this.addTransaction(this.senderIdForm.value, this.receiverIdForm.value, this.amountForm.value);
   }
 
   addTransaction(receiverId: number, senderId: number, amount: number) {
-    const transaction = new Transaction(receiverId, senderId, amount)
+    const transaction = new Transaction(this.receiverIdForm.value, this.senderIdForm.value, this.amountForm.value)
     this.rest.postTransaction(transaction).subscribe(response => this.transaction = response)
   }
 

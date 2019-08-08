@@ -1,29 +1,51 @@
-<form [formGroup]="transactionForm" *ngIf="transactionForm">
 
-    <input formControlName="senderId" type="number" placeholder="sender account id"
-    [ngClass]="{'invalid': f.senderId.touched && f.senderId.errors}">
- 
-  <span *ngIf="f.senderId.errors && f.senderId.touched">There is no account with this id</span>
+<form [formGroup]="transactionForm">
 
-  <input formControlName="receiverId" type="number" placeholder="receiver account id"
-    [ngClass]="{'invalid': f.receiverId.touched && f.receiverId.errors}">
- 
-  <span *ngIf="f.receiverId.errors && f.receiverId.touched">There is no account with this id</span>
+    <mat-form-field>
+        <input matInput placeholder="senderId" [formControl]="senderIdForm">
+        <mat-error *ngIf="senderIdForm.hasError && !senderIdForm.hasError('required')">
+          Please enter a valid sender id
+        </mat-error>
+        <mat-error *ngIf="senderIdForm.hasError('required')">
+          sender id is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
 
-  <input formControlName="amount" type="number" placeholder="amount"
-    [ngClass]="{'invalid': f.amount.touched && f.amount.errors}">
+    <mat-form-field>
+        <input matInput placeholder="receiverId" [formControl]="receiverIdForm">
+        <mat-error *ngIf="receiverIdForm.hasError && !receiverIdForm.hasError('required')">
+          Please enter a valid receiver id
+        </mat-error>
+        <mat-error *ngIf="receiverIdForm.hasError('required')">
+          receiver id is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
 
-  <span *ngIf="f.amount.errors && f.amount.touched">Please enter a positive number</span>
-  
+    <mat-form-field>
+        <input matInput placeholder="amount" [formControl]="amountForm">
+        <mat-error *ngIf="amountForm.hasError && !amountForm.hasError('required')">
+          Please enter a valid amount
+        </mat-error>
+        <mat-error *ngIf="amountForm.hasError('required')">
+          amount is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
 
-  <button (click)="postFormTransaction()">Make Transaction</button>
-</form>
+  </form> 
 
-<div *ngIf=transaction>Transaction successfull</div>
+<button mat-raised-button (click)="postFormTransaction()">Make Transaction</button>
+
+<br>
+
+<div *ngIf=transaction><br>Transaction successfull</div>
+
+<br>
 
 <div>
-  <button (click)="showTransactions = !showTransactions; getTransactions()">Past Transactions</button>
+  <button mat-raised-button (click)="showTransactions = !showTransactions; getTransactions()">Past Transactions</button>
 </div>
+
+<br>
 
 <div *ngIf=showTransactions>
 
